@@ -1,0 +1,49 @@
+let num1 = +prompt("type a number")
+let num2= +prompt("type another number")
+let num3 = 0
+let factor = 0
+
+if (num2 >= num1) {
+	num3 = num2
+}
+else if (num1 >= num2){
+	num3 = num1
+}
+
+for(i = 0; i <= num3; i++){
+	if (num2 % i === 0 && num1 % i === 0){
+		factor = i
+	}
+}
+
+printToScreen(factor)
+
+
+
+
+
+function printToScreen(text) {
+	let r = Math.floor(Math.floor(Math.random() * 255 + 1));
+	let g = Math.floor(Math.floor(Math.random() * 255 + 1));
+	let b = Math.floor(Math.floor(Math.random() * 255 + 1));
+	const svg = d3
+		.select("body")
+		.append("svg")
+		.attr("width", 1500)
+		.attr("height", 75);
+
+	svg
+		.append("text")
+		.attr("y", 37.5)
+		.attr("width", 450)
+		.attr("height", 75)
+		.attr("x", -1000)
+		.attr("font-weight", "bold")
+		.attr("font-size", "20px")
+		.attr("fill", `rgb(${r},${g},${b}`)
+		.attr("font-family", "Roboto")
+		.text(text)
+		.transition()
+		.duration(1000)
+		.attr("x", 37.5);
+}
